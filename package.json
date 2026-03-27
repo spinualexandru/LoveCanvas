@@ -1,0 +1,118 @@
+{
+  "name": "lovecanvas",
+  "displayName": "LoveCanvas",
+  "description": "Run LÖVE2D games directly inside VS Code using WebAssembly. Press play, see your game in a split panel -- no external window needed.",
+  "version": "0.1.0",
+  "publisher": "AlexSpinu",
+  "author": {
+    "name": "Alexandru Spinu"
+  },
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexandruspinu/lovecanvas"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "love2d",
+    "löve",
+    "lua",
+    "game",
+    "gamedev",
+    "wasm",
+    "webassembly",
+    "preview"
+  ],
+  "galleryBanner": {
+    "color": "#2d2d2d",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "workspaceContains:main.lua"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "love-preview.play",
+        "title": "LoveCanvas: Play Game",
+        "icon": "$(play)"
+      },
+      {
+        "command": "love-preview.stop",
+        "title": "LoveCanvas: Stop Game",
+        "icon": "$(debug-stop)"
+      },
+      {
+        "command": "love-preview.restart",
+        "title": "LoveCanvas: Restart Game",
+        "icon": "$(debug-restart)"
+      },
+      {
+        "command": "love-preview.toggleHotReload",
+        "title": "LoveCanvas: Toggle Hot Reload",
+        "icon": "$(sync)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "love-preview.play",
+          "when": "resourceFilename == main.lua && !love-preview.isRunning",
+          "group": "navigation"
+        },
+        {
+          "command": "love-preview.stop",
+          "when": "love-preview.isRunning",
+          "group": "navigation"
+        },
+        {
+          "command": "love-preview.restart",
+          "when": "love-preview.isRunning",
+          "group": "navigation"
+        },
+        {
+          "command": "love-preview.toggleHotReload",
+          "when": "love-preview.isRunning",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "LoveCanvas",
+      "properties": {
+        "love-preview.loveVersion": {
+          "type": "string",
+          "default": "11.5",
+          "enum": [
+            "11.3",
+            "11.4",
+            "11.5"
+          ],
+          "description": "LÖVE2D runtime version"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "download-lovejs": "node scripts/download-lovejs.mjs",
+    "vscode:prepublish": "npm run download-lovejs && npm run build -- --production",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.3.0",
+    "@vscode/vsce": "^2.22.0"
+  }
+}

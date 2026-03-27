@@ -1,0 +1,5 @@
+node_modules/
+dist/
+love-runtime/
+*.vsix
+.vscode-test/
