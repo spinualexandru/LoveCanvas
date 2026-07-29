@@ -113,6 +113,6 @@
     "@types/node": "^20.0.0",
     "esbuild": "^0.28.1",
     "typescript": "^5.3.0",
-    "@vscode/vsce": "^2.22.0"
+    "@vscode/vsce": "^3.9.2"
   }
 }
