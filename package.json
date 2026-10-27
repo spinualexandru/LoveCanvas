@@ -11,7 +11,7 @@
   "icon": "media/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexandruspinu/lovecanvas"
+    "url": "https://github.com/spinualexandru/LoveCanvas"
   },
   "engines": {
     "vscode": "^1.140.0"
