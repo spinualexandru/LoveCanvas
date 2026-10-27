@@ -1,0 +1,6 @@
+allowBuilds:
+  '@vscode/vsce-sign': true
+  esbuild: true
+overrides:
+  # GHSA-xcx6-jx8p-x3h5: @azure/identity (via @vscode/vsce) still pins ^6
+  '@azure/msal-node': ^7.1.1

@@ -12,8 +12,9 @@ const FILES = [
   "nogame.love",
   "lua/normalize1.lua",
   "lua/normalize2.lua",
-  "11.5/compat/love.js",
-  "11.5/compat/love.wasm",
+  "11.5/love.js",
+  "11.5/love.wasm",
+  "11.5/license.txt",
 ];
 
 const OUT_DIR = join(import.meta.dirname, "..", "love-runtime");
@@ -52,18 +53,6 @@ async function main() {
     const data = await download(url);
     writeFileSync(outPath, data);
     console.log(`  wrote ${file} (${(data.length / 1024).toFixed(1)} KB)`);
-  }
-
-  // Patch player.js: remove SharedArrayBuffer check (not needed in compat mode)
-  const playerPath = join(OUT_DIR, "player.js");
-  const playerJs = (await import("fs")).readFileSync(playerPath, "utf-8");
-  const patched = playerJs.replace(
-    /if \(!window\.SharedArrayBuffer\) \{[\s\S]*?return;\s*\}/,
-    "// SharedArrayBuffer check removed for compat mode"
-  );
-  if (patched !== playerJs) {
-    writeFileSync(playerPath, patched);
-    console.log("  patched player.js (removed SharedArrayBuffer check)");
   }
 
   console.log("done!");

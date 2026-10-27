@@ -129,7 +129,7 @@ export class GameServer {
 <body>
 <canvas id="canvas"></canvas>
 <div id="spinner" class="pending"></div>
-<script src="player.js?g=game.love&c=1&n=1"></script>
+<script src="player.js?g=game.love&n=1"></script>
 </body>
 </html>`;
   }
