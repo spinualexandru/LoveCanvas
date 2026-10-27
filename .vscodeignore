@@ -9,3 +9,5 @@ esbuild.js
 **/*.ts
 **/*.map
 test-game/
+pnpm-lock.yaml
+pnpm-workspace.yaml
