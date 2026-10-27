@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1
+
+- Bundle the love.js runtime from upstream's new 11.5 layout
+- Upgrade dependencies
+- Fix the repository link in the extension manifest
+
 ## 0.1.0
 
 - Initial release

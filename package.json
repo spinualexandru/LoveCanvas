@@ -2,7 +2,7 @@
   "name": "lovecanvas",
   "displayName": "LoveCanvas",
   "description": "Run LÖVE2D games directly inside VS Code using WebAssembly. Press play, see your game in a split panel -- no external window needed.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "AlexSpinu",
   "author": {
     "name": "Alexandru Spinu"
